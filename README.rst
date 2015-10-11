@@ -27,3 +27,25 @@ Compatibility Roadmap
 - 1.4 will be supported only Django >= 1.7, please freeze your requirements on specific version of ``dbtemplates`` !
 
 .. _template loader: http://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types
+
+
+Setup for Django 1.8
+--------------------
+1. Add to your INSTALLED_APPS:
+``
+ INSTALLED_APPS = (
+     ...
+    'django.contrib.sites',
+    'django.contrib.flatpages',
+    'dbtemplates',
+ )
+``
+2. Add `SITE_ID = 1` to your settings
+3. Update settings for TEMPLATES['OPTIONS']:
+  ``
+    'loaders': [
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+        'dbtemplates.loader.Loader',
+        ]
+ ``
