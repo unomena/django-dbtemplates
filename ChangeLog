@@ -1,0 +1,472 @@
+CHANGES
+=======
+
+* fix RemovedInDjango19Warning: 'get_cache' is deprecated in favor of 'caches'
+* drop support for django < 1.3.7
+* Fix some Python 3 issues - thanks @vikingco
+* fix setup for python 3
+* use managers for django 1.8+
+* use migrations generated from django 1.7
+* added django migrations and south moved to own directory
+* fixed (fields.W340) null has no effect on ManyToManyField and import sorting
+* fix settings runtime patching which cause fails because if we set correct template dirs is not there test dirs
+* cleanup yaml
+* properly exclude python 2.6 from new djangos
+* properly collect template dirs for all available template engines in dj 1.8 and prettify readme
+* fix app dirs on django 1.8
+* exclude python 2.6 from Dj 1.7 and 1.8 where was dropped support for this version
+* omg fix pep8 passing
+* update readme and added notice about compatibility, bump version and changelog
+* added middleware classes
+* pep8 cleanup and fix test runner for new django
+* ModelForm now requires either fields or exclude - mentoined in #52 thanks @volksman
+* fix flake8
+* bump version
+* update dj versions
+* proper solution
+* fix loader for django 1.8
+* fix name
+* hot-fixed populating template djagno 1.8+
+* Deleted utils.py
+* Include fields to class Meta
+* Fix URL to django-reversion doc
+* add Russian locale
+* Drop support for Python 2.5
+* Test on Django 1.5.X, too
+* Minor cosmetic changes to please flake8
+* Support for using redactorjs for editing templates
+* Moved to django-discover-runner
+* Use __isnull for querying a non-site specific template. Refs #33
+* Re-enabled 2.5 now that flake8 works on it again
+* Disabled Python 2.5 again as flake8 doesn't support it at the moment :(
+* Trying 2.5
+* Set env vars before installing and use crate
+* Bumped version to 1.3
+* Use version from __version__
+* Removed old hg tags
+* Correct version
+* Updated settings docs
+* Updated changelog
+* Updated AUTHORS file
+* Removed INSTALL file from manifest template
+* Ignore long lines, stupid
+* Forgotten dirname for flake8
+* Fixed typo
+* Switched to using nose and django-nose for easy test running
+* Minor code cleanup of the migrations
+* Handle timezone on 1.4 correctly
+* Added link to Travic build
+* Added DATABASES setting to please Django 1.4
+* Get the database name from the routers and dropped support for 1.2.X
+* Limit the tests to dbtemplates
+* Stop using a context manager when we don't need it really
+* Added auth app to list of installed apps during tests
+* Renamed test requirements file to correct name
+* Added a few more test requirements
+* Further fiddling with the travis config
+* Hrm, setting the variable in the env block?
+* Forgot to set the DJANGO_SETTINGS_MODULE var
+* Removed dependency on versiontools
+* Moved CI to Travis
+* Fixed an issue where ``get_cache_key`` may produce invalid memcached keys
+* Fix for #28
+* Fix #27
+* Add failing tests for #27
+* fix for tests when dbtemplates template loader is not in main settings.py
+* Force an encoding when writing the content to the file
+* removed urls.py which is not required if django-tinymce is installed properly. fixed new bug relating to codemirror introduced by tinymce
+* respect column widths
+* fixed tinyMce not appearing in admin area
+* Added TinyMCE support via django-tinymce
+* Update docs/overview.txt
+* Fix typo in docs - ``dbtemplates.loader.Loader`` should be first in ``TEMPLATE_LOADERS``
+* Fix typo in docs
+* Fixed ignore files
+* Use django-jenkins for tests and prepare it for ci.enn.io
+* Updated year
+* Use latest versiontools
+* Minor cleanup in docs
+* Bumped version to 1.2.1
+* Use better testrunner
+* Added versiontools requirement to setup.py
+* Use django-appconf
+* Fixed changelog and added bugfix to it
+* using ugettext
+* Updated translations
+* Updated base translation files
+* Bumped to 1.2 and extended Trove classifiers
+* Bundle authors list
+* Updated docs
+* Slight corrections to loader
+* Fixed tests
+* Renamed admin action to be less ambiguous
+* Some minor additions to the "performance speedup". Extends the list of authors, too
+* Typo fix
+* Removed license headers, reverted LICENSE file and added a CONTRIBUTORS file
+* Use the cache to remember which templates were not found in the database. Also reverse the logic of the database lookup. First check if there is site-specific template in the database and only if that fails try to load the global template. This should cut down the number of database queries that need to be executed, especially in a loop that includes a given template that does not exist in the database
+* Added template syntax checker admin actions
+* Bumped version up a bit
+* Extended docs about using the Loader class instead of the previously available function. Fixes #11
+* Added links to the repo on Github. Fixes #10
+* Fixed cache loading. Fixes #13
+* Bumped version and copyright year
+* Updated translations
+* Fixed Transifex configuration
+* Removed trailing whitespace
+* Prepared changelog for release
+* Removed unneeded requirement from example project
+* Fixes template names being cut off when using sync_templates: http://cl.ly/0R092W1H3n3m19120j1x
+* Change to skip template loaders whose load method is not implemented. This happens with the Django cached template loader, in particular
+* Extended sync_templates command to make exporting changes out to file easier
+* Added tests for sync_templates command
+* A bunch of flake8 fixees
+* Extended changelog
+* Refactored loader to be class based only
+* Moved setttings over to use AppSettings class
+* Split utils module
+* 1.1 isn't supported anymore
+* Change to skip template loaders whose load method is not implemented. This happens with the Django cached template loader, in particular
+* Use current example project
+* Fixed import
+* allow blank sites
+* allow save as for templates to easily copy templates for another site
+* filter horizontal the sites
+* typo
+* remove name uniqueness, with migration
+* Relaxed the cache setting handling a bit. Fixes #7
+* Forgot to update changelog
+* Bumped to 1.0.1
+* Fixed cache setting handling. Fixes issue #4
+* Only check for old-style caches if the value is a string (e.g. locmem://)
+* Use the class based loader in the docs
+* Also bumped Sphinx config version and changelog
+* Added PEP386 helper code
+* Updated code to pass more Pyflakes
+* Fall back to MEDIA_URL actually, to make sure we don't hit an AttributeError with the default value of None
+* Removed unneeded import
+* Updated changelog and added a note about the tested Django versions. Fixes #3
+* Fixed ImportError
+* Split docs in multiple files and updated use ReadTheDocs
+* Added DATABASES setting to example project to make sure we can run on modern Django
+* Added make files
+* Use default theme
+* Updated example URL conf
+* BACKWARDS INCOMPATIBLE CHANGE. Use STATIC_URL by default
+* BACKWARDS INCOMPATIBLE CHANGE. Refactored caching to just use Django's caching system, instead of its own
+* Updated setup.py and manifest template to use new static file location
+* Added tox config and test runner
+* Moved media/* to static/* for new staticfiles compatibility
+* Added new Transifex config
+* Updated PO file a bit
+* Updated a few gettext metadata items
+
+0.8.0
+-----
+
+* Bumped to 0.8.0
+* Added news to docs
+* Updated sync_templates management command slightly
+* Updated English base translation
+* Updated German translation
+* Added Finnish translation, thanks Jaakko Holster
+* add --app_first option to sync_templates management command to process templates from app directories before templates from settings.TEMPLATE_DIRS
+* add --overwrite option to sync_templates command
+
+0.7.4
+-----
+
+* Bumped to 0.7.4
+* Fixed issue 12 -- Make the test not break other tests
+
+0.7.3
+-----
+
+* More detail regarding the new setting
+* Removed stray print statement
+* Bumped version
+* Added news for latest release
+* Added DBTEMPLATES_AUTO_POPULATE_CONTENT setting to be able to disable to auto populating of template content
+* Don't collapse the advanced fields, cause sites is required
+* Nicer settings in admin module
+* Extended gitignore
+* Make sure of the correct backend when loading an initial version of a template. Possible fix for issue #8
+
+0.7.2
+-----
+
+* Prepare for a Github move only release
+* .gitignore
+* Added additional upload sphinx section to setup config file
+* Bumped version to 0.7.2a1
+* Added tag 0.7.1 for changeset 74c22fa8c4a6
+
+0.7.1
+-----
+
+* Prepare for release
+* Added news for last commits
+* Made DBTEMPLATES_MEDIA_PREFIX setting default to <MEDIA_ROOT>/dbtemplates instead of None
+* Fixed disabling the CodeMirror textarea
+* Fixed setting name in example project
+* Bumped to 0.7.1a1
+* Added tag 0.7.0 for changeset 34a051192862
+
+0.7.0
+-----
+
+* Removed alpha flag
+* Fixed silly versioning kerfuffle
+* Updated docs a little more
+* Updated packaging files to not include template file anymore
+* Updated docs for upcoming 0.7.0 release
+* Moved sites selection to collapsed fieldset by default
+* Added optional CodeMirror-based syntax highlighing editor
+* Added staticfiles as a requirement of the example app
+* Added test for issue #8
+* Bumped version to 0.7.0a1
+* Converted doctests to unittests, yay!
+* Don't print to stdout in when creating default error templates, if verbosity = 0
+* Added class based template loader for Django >= 1.2
+* Cleaned up a little
+* Moved settings to own module
+* Bumped version up a little
+* Updated packaging a little
+* Add Chinese translation
+* Tweaking the stylesheet overrides a little
+* Fixes issue 4 -- The textarea of the content field now uses the full width in the admin
+* l10n: Updates to French (fr) translation
+* Removed code-block again since PyPI barfs
+* Living in the future
+* Added tag 0.6.1 for changeset 0ac352fec2c2
+
+0.6.1
+-----
+
+* Bumped to 0.6.1
+* Added documentation for the new feature
+* Updated tests for the new feature and fixed them
+* Fixes issue 3 - Templates don't default to a site. Added ability to turn this off by setting DBTEMPLATES_ADD_DEFAULT_SITE to False
+* Added nature theme and updated documentation to use it
+* Bumped version up to 0.6.1dev and fixed minor problem with doc index
+* Moved changelog to docs, yay
+* Merge
+* Added tag 0.5.8 for changeset f8f7eaf275c5
+* Added tag 0.6.0 for changeset 4b36382cdfd7
+
+0.6.0
+-----
+
+* Getting ready for 0.6.0
+* Added Sphinx configuration and updated the docs with latest changes
+* Compiled translations
+* Updated locales after latest changes
+* Added example project db to hgignore
+* Added admin actions to invalidate and repopulate template cache
+* Enabled egg template loader in case someone is trying to test with django-reversion which might get zipped when installed with easy_install
+* Compiled danish and pt_BR locales
+* Updated locales again
+* Updated locales and added empty en locale
+* Merge
+* Updated locales and added empty en locale
+* l10n: Added Brazilian Portuguese translation
+* l10n: Added Danish locale, thanks illio. Fixed issue #2
+* l10n: Updates to Hebrew (he) translation
+* l10n: Updates to German (de) translation
+* Fixes an ambiguity problem with the cache invalidation
+* Bumped version up to 0.5.9 and added dev flag
+
+0.5.8
+-----
+
+* Exlucde example app from installation, bumped to 0.5.8
+* Updated docs with correct link to issue tracker
+* Fixed rST error in README
+* Added marker for Bitbucket's README parser
+* Added tag 0.5.7 for changeset dff01be9c8af
+
+0.5.7
+-----
+
+* Added tag 0.5.6 for changeset ade167225d06
+* Added tag 0.5.5 for changeset 4109e0db4340
+* Added tag 0.5.4 for changeset 5965315c03c1
+* Added tag 0.5.3 for changeset 6967bbbee378
+* Added tag 0.5.2 for changeset 67a86cf9f7c8
+* Added tag 0.5.1 for changeset bf3db2fe192d
+* Added tag 0.5.0 for changeset a3be97628ed8
+* Added tag 0.4.7 for changeset 9dc2a0e48494
+* Added tag 0.4.6 for changeset 9a30f34bc5b0
+* Added tag 0.4.5 for changeset ea4d636f3459
+* Added tag 0.4.4 for changeset 5b2e4f7fc267
+* Added tag 0.4.3 for changeset 447247c1ce1f
+* Added tag 0.4.2 for changeset a4bd56a7c2ea
+* Added tag 0.4.1 for changeset d35a41ea96d3
+* Added tag 0.4.0 for changeset 50c69325d375
+* Added tag 0.3.1 for changeset 97da228cc698
+* Added tag 0.3.0 for changeset 1b426859f05b
+* Added tag 0.2.5 for changeset bd537cd8beba
+* Changed docs and setup.py to use new location at Bitbucket. Added hgignore, remove .gitignore
+
+0.5.6
+-----
+
+* Fixed a rST warning with implicite target name
+* Updated gitignore file committer: Jannis Leidel <jannis@leidel.info>
+* Bumped to version 0.5.6 committer: Jannis Leidel <jannis@leidel.info>
+* Moved doctests to own file, updated to actually work :) committer: Jannis Leidel <jannis@leidel.info>
+* Fixed a stupid bug in the create_error_template command. committer: Jannis Leidel <jannis@leidel.info>
+* Minor updates to install instructions, license, manifest template and setup.py. committer: Jannis Leidel <jannis@leidel.info>
+* .gitignore
+
+0.5.5
+-----
+
+* Changed setup.py to use setuptools because it has a with zip_safe attribute which prevents creating zipped installations
+* Added Italian translation (thanks marcoberi) and updated other locales with latest string additions
+* Removed superfluous imports
+* Fix typo
+* Fix typo
+* Look in INSTALLED_APPS to find out if django-reversion is installed
+* Added a list to the admin list view that contains all site names that the template is used on
+
+0.5.4
+-----
+
+* Made loader and cache backends site-aware. The filesystem cache backend now saves the files under <dir>/<site_domain>/<file_name>. The Django cache backend the Site id in the cache key. Template is now saved explicitly to backend if not existent in cache (e.g. if deleted manually or invalidated
+* Small change to fix download from Github
+* Removed hg cruft
+* Removed hg cruft
+* Changed wrong link in docs
+
+0.5.3
+-----
+
+* Removed automatic creation of 404.html and 500.html templates and added a new management command for those cases called "create_error_templates". Also made reverted move to Bitbucket
+* Removed automatic creation of 404.html and 500.html templates and added a new management command for those cases called "create_error_templates". Also made reverted move to Bitbucket
+* Added hooks for __version__
+
+0.5.2
+-----
+
+* Small change in the description
+* Added tag v0.5.2 for changeset c2ddc104f0da
+* tag update
+* Added some documentation for the example project, support to start it directly and small touches on the docs
+* Some for annoyance for hgignore
+* Updated MANIFEST and bumped minor version to 0.5.2
+* Fixed problem when django.contrib.sites' table isn't populated yet on initialization of dbtemplates. Thanks for the report, Kevin Fricovsky
+* Changed a translation string and updated locales
+* Added simple example project for testing
+* Added hgignore file
+* Added tag v0.5.1 for changeset d4d6fd6ef24e
+* D'oh, stupid bug in docs
+* Added tag v0.5.1 for changeset d28c311da014
+* Use docs/overview.txt for PyPI and only have small things in README
+* Added tag v0.5.1 for changeset 374b15b01724
+
+0.5.1
+-----
+
+* Removed old sync_templates.py script, use the django-admin.py sync_templates please. Removes unneeded code that registers the model with django-reversion manually. Updated docs after move from Google Code to Bitbucket
+
+0.5.0
+-----
+
+* Updated German and Hebrew locales (Thanks to Alex Gaynor
+* Updated docs after adding caching backend and support for django-reversion
+* Fixed docstring in template loader. Fixed wrong return types in FileSystemBackend
+* Refactored template loader to use new backend architecture, that populates the cache by using signals. Adds a BaseCacheBackend class with a simple API (load, save, remove) to be subclassed and specified in the DBTEMPLATES_CACHE_BACKEND settings. Adds DjangoCacheBackend (uses Django's own caching mechanism) and FileSystemBackend (simple approach to filesystem saving)
+* Added support for django-reversion to versionize Template instances. Enabled only if django-reversion is installed. Makes the template textarea appear larger and use monospace fonts. Enables filtering by sites in the changelist view
+* Fill template with existing one, in case, if 'content' was leaved empty
+* More doc changes for Pinax
+* Added simple documentation for sphinxified pinax docs
+
+0.4.7
+-----
+
+* bumped version
+* Made save() mathod arguments magic
+* fixed wrong link in setup.py and readme
+
+0.4.6
+-----
+
+* modifications on the docs and version bump
+
+0.4.5
+-----
+
+* actually implemented the --force option of sync_templates command, thanks Martin Mahner
+
+0.4.4
+-----
+
+* fixed error in custom model save(
+
+0.4.3
+-----
+
+* bumped version up because of oldforms removal
+* remove oldforms stuff
+* updated README to actually be rST
+* Changed extension of README to use Github's formatting
+
+0.4.2
+-----
+
+* Added Hebrew translation, thanks mkriheli
+* updated manifest template to include locale data
+* updated manifest template to include locale data
+
+0.4.1
+-----
+
+* changed version
+* changed german locale
+* added french locale, thanks to Roland Frédéric. changed german locale
+* added german locale
+* Updated signals code due to backwards incompatible change in Django r8223
+
+0.4.0
+-----
+
+* added support for newforms-admin
+* updated tests to be not as old as the hills
+* only creates default 404 and 500 templates if not exist
+
+0.3.1
+-----
+
+* changed version to 0.3.1
+* stuuupid bug
+* stuuupid bug
+
+0.3.0
+-----
+
+* little changes on setup.py for 0.3.0 release
+* new management command 'sync_templates' for syncing the templates bidirectional
+* svn:ignore for *.pyc
+* fix for templates which have (multiple) directories in their name
+* added some docstrings, fixed operation for the case, that settings.DBTEMPLATE_CACHE_DIR is not set. code-cleanup needed ..
+* added filesystem-based caching of dbtemplates (configured via settings.DBTEMPLATES_CACHE_DIR). docs and tests still missing
+
+0.2.5
+-----
+
+* added support for newforms-admin with patch by simon.hedberg, thanks
+* simple change
+* cosmetic changes
+* changed __str__ to __unicode__ in Template model
+* sync_templates.py now sync correctly and has some command line options
+* next try to make sync_templates.py useful for every day action
+* made sync_template.py a script which installs in python's bin dir
+* again: refactoring as a standalone application
+* again: refactoring as a standalone application
+* again: refactoring as a standalone application
+* again: refactoring as a standalone application
+* start of refactoring as a standalone application
+* Further corrections
+* Added README and LICENSE
+* initial commit
+* Initial directory structure
