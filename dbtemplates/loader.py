@@ -25,7 +25,7 @@ class Loader(tLoaderCls):
     is_usable = True
 
     def load_and_store_template(self, template_name, cache_key, site, **params):
-        template = Template.objects.get(name__exact=template_name, **params)
+        template = Template.objects.permitted().get(name__exact=template_name, **params)
         db = router.db_for_read(Template, instance=template)
         display_name = 'dbtemplates:%s:%s:%s' % (db, template_name, site.domain)
         return set_and_return(cache_key, template.content, display_name)
