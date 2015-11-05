@@ -9,3 +9,6 @@ docs/_build
 .tox/
 *.egg/
 .coverage
+.project
+.pydevproject
+.settings/

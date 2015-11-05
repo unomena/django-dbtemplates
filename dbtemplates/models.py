@@ -16,8 +16,11 @@ except ImportError:
     from datetime import datetime
     now = datetime.now
 
+from uno.core import models as core_models
+from uno.core.managers import CoreStateManager
 
-class Template(models.Model):
+
+class Template(core_models.StateModel):
     """
     Defines a template model for use with the database template loader.
     The field ``name`` is the equivalent to the filename of a static template.
@@ -32,7 +35,7 @@ class Template(models.Model):
     last_changed = models.DateTimeField(_('last changed'),
                                         default=now)
 
-    objects = models.Manager()
+    objects = CoreStateManager()
     on_site = CurrentSiteManager('sites')
 
     class Meta:
